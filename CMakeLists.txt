@@ -5,25 +5,11 @@ project(ainulindale)
 # For the LSP
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Tree-wide
 include_directories(include)
 
-# Custom shared library injector
-add_library(library_injector
-    STATIC
-    source/library_injector/Injector.cpp
-    source/library_injector/RemoteProcess.cpp)
-target_include_directories(library_injector PUBLIC source/library_injector)
+# Dependencies source code
+add_subdirectory(source_deps)
 
-# mettle's libreflect (from Rapid7)
-set(LIBREFLECT_PATH source_deps/mettle_libreflect)
-file (GLOB LIBREFLECT_SRC ${LIBREFLECT_PATH}/src/*.c)
-add_library(libreflect STATIC ${LIBREFLECT_SRC})
-target_compile_options(libreflect PUBLIC -Wall -Werror -pedantic)
-target_include_directories(libreflect PUBLIC
-    ${LIBREFLECT_PATH}/include
-    ${LIBREFLECT_PATH}/arch/linux/aarch64)
-target_link_libraries(libreflect log)
-
-# audioserver proxy binary
-add_executable(audioserver source/audioserver.cpp)
-target_link_libraries(audioserver library_injector libreflect log)
+# audioserver proxy source code
+add_subdirectory(source)
