@@ -13,5 +13,6 @@ for abi in ["armeabi-v7a", "arm64-v8a"]:
         "-DANDROID_PLATFORM=latest",
         "-DANDROID_NDK=" + android_ndk,
         "-DCMAKE_TOOLCHAIN_FILE=" + android_ndk + "/build/cmake/android.toolchain.cmake",
+        "-DCMAKE_BUILD_TYPE=Release",
         "-GNinja"])
     subprocess.run(["cmake", "--build", "build/" + abi])

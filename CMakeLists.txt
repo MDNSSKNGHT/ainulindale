@@ -5,6 +5,10 @@ project(audioserver)
 # For the LSP
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Strip binaries (otherwise audioserver will be a large binary)
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -s")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -s")
+
 include_directories(include)
 
 # Custom shared library injector
