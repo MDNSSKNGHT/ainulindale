@@ -5,4 +5,4 @@ project(audioserver)
 # For the LSP
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_executable(audioserver src/main.cpp)
+add_executable(audioserver source/main.cpp)
