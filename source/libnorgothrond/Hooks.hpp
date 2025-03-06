@@ -1,13 +1,9 @@
 //
-// Created by mdnssknght on 06/08/2024.
+// Created by mdnssknght on 03/06/2025.
 //
 
 #pragma once
 
-//
-// Hook function definition.
-void hook(void);
-
-//ainulindale core hooks
-double bessi0(double x);
-void firKaiserGen(T* coef, int L, int halfNumCoef, double stopBandAtten, double fcr, double atten);
+void createKaiserFir_fff(void* this_ptr, void* constants, double unused_stopBandAtten, double fcr);
+void createKaiserFir_ssi(void* this_ptr, void* constants, double unused_stopBandAtten, double fcr);
+void createKaiserFir_isi(void* this_ptr, void* constants, double unused_stopBandAtten, double fcr);

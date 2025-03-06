@@ -1,0 +1,9 @@
+#pragma once
+
+#define MODULE_AINUR "/data/adb/modules/zyx_ainur_silmaril"
+#define MODULE_AINUR_DOWN "/data/adb/modules/zyx_ainur_silmaril/disable"
+
+#define LIBAUDIOPROCESSING "libaudioprocessing.so"
+#define LIBAUDIOPROCESSING_KAISER_FFF "_ZN7android17AudioResamplerDynIfffE15createKaiserFirERNS1_9ConstantsEdd"
+#define LIBAUDIOPROCESSING_KAISER_SSI "_ZN7android17AudioResamplerDynIssiE15createKaiserFirERNS1_9ConstantsEdd"
+#define LIBAUDIOPROCESSING_KAISER_ISI "_ZN7android17AudioResamplerDynIisiE15createKaiserFirERNS1_9ConstantsEdd"
