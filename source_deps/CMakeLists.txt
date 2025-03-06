@@ -24,7 +24,7 @@ file(GLOB SHADOWHOOK_SRC
 add_library(shadowhook SHARED ${SHADOWHOOK_SRC})
 target_compile_features(shadowhook PUBLIC c_std_17)
 # Remove -Werror to build with any NDK version
-target_compile_options(shadowhook PUBLIC -std=c17 -Weverything)
+target_compile_options(shadowhook PRIVATE -std=c17 -Weverything)
 target_include_directories(shadowhook PUBLIC
     shadowhook/.
     shadowhook/include
