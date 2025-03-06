@@ -5,11 +5,11 @@ project(ainulindale)
 # For the LSP
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Defines all the dependencies as targets
+include(external/dependencyTarget.cmake)
+
 # Tree-wide
 include_directories(include)
-
-# Dependencies source code
-add_subdirectory(source_deps)
 
 # audioserver proxy source code
 add_subdirectory(source)

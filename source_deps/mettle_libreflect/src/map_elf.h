@@ -4,7 +4,6 @@
 #include <elf.h>
 #include <link.h>
 
-#define PAGE_SIZE getpagesize()
 #define PAGE_FLOOR(addr, page_size) ((addr) & (-(page_size)))
 #define PAGE_CEIL(addr, page_size) (PAGE_FLOOR((addr) + PAGE_SIZE - 1, (page_size)))
 
