@@ -19,4 +19,5 @@ target_include_directories(reflect PUBLIC
     third_party/libreflect/include
     third_party/libreflect/arch/linux/${ARCH})
 
-add_executable(android-ndk src/main.cpp)
+add_executable(audioserver src/audioserver.cpp)
+target_link_libraries(audioserver reflect)
