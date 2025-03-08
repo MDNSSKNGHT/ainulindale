@@ -5,6 +5,8 @@ project(ainulindale)
 # For the LSP
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+include_directories(include)
+
 if(${ANDROID_ABI} STREQUAL "arm64-v8a")
     set(ARCH aarch64)
 elseif(${ANDROID_ABI} STREQUAL "armeabi-v7a")
@@ -18,6 +20,9 @@ target_compile_options(reflect PUBLIC -Wall -Werror -pedantic)
 target_include_directories(reflect PUBLIC
     third_party/libreflect/include
     third_party/libreflect/arch/linux/${ARCH})
+
+add_library(norgothrond SHARED src/libnorgothrond/OnLoad.cpp)
+target_link_libraries(norgothrond log)
 
 add_executable(audioserver src/audioserver.cpp)
 target_link_libraries(audioserver reflect)
