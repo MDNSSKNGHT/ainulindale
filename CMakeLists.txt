@@ -9,20 +9,6 @@ include(cmake/${ANDROID_ABI}/ThirdParty.cmake)
 
 include_directories(include)
 
-# if(${ANDROID_ABI} STREQUAL "arm64-v8a")
-#     set(ARCH aarch64)
-# elseif(${ANDROID_ABI} STREQUAL "armeabi-v7a")
-#     set(ARCH armv7a)
-# endif()
-
-# file(GLOB SRC third_party/libreflect/src/*.c)
-# add_library(reflect STATIC ${SRC})
-# set_target_properties(reflect PROPERTIES C_STANDARD 99)
-# target_compile_options(reflect PUBLIC -Wall -Werror -pedantic)
-# target_include_directories(reflect PUBLIC
-#     third_party/libreflect/include
-#     third_party/libreflect/arch/linux/${ARCH})
-
 add_library(norgothrond SHARED src/libnorgothrond/OnLoad.cpp)
 target_link_libraries(norgothrond log)
 
