@@ -24,5 +24,10 @@ target_include_directories(reflect PUBLIC
 add_library(norgothrond SHARED src/libnorgothrond/OnLoad.cpp)
 target_link_libraries(norgothrond log)
 
+add_library(injector STATIC
+    src/injector/RemoteProcess.cpp
+    src/injector/Injector.cpp)
+target_include_directories(injector PUBLIC src/injector)
+
 add_executable(audioserver src/audioserver.cpp)
 target_link_libraries(audioserver reflect)
