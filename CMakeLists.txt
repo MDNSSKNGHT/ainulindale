@@ -28,6 +28,7 @@ add_library(injector STATIC
     src/injector/RemoteProcess.cpp
     src/injector/Injector.cpp)
 target_include_directories(injector PUBLIC src/injector)
+target_link_libraries(injector log)
 
 add_executable(audioserver src/audioserver.cpp)
-target_link_libraries(audioserver reflect)
+target_link_libraries(audioserver reflect injector)
