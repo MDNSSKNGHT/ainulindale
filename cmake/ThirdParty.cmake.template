@@ -1,0 +1,7 @@
+if (NOT TARGET {target})
+    add_library({target} {linkType} IMPORTED)
+    set_target_properties({target} PROPERTIES
+        IMPORTED_LOCATION "{libPath}"
+        INTERFACE_INCLUDE_DIRECTORIES "{includePath}"
+        INTERFACE_LINK_LIBRARIES "{linkLibraries}")
+endif()
