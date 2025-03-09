@@ -7,6 +7,9 @@ import os.path as path
 # Export the Android NDK path to ANDROID_NDK env variable
 android_ndk = os.environ.get("ANDROID_NDK")
 
+# Export the Android NDK path to ANDROID_NDK 23.2.8568313 env variable
+android_ndk_legacy = os.environ.get("ANDROID_NDK_LEGACY")
+
 # Absolute path where this script resides in
 project_dir = path.dirname(path.realpath(__file__))
 
@@ -42,8 +45,11 @@ def build_party(prj, ndk):
 
 def main():
     build_party('libreflect', android_ndk)
+    build_party('shadowhook', android_ndk_legacy)
 
-    targets_cmake({'libreflect': ['reflect', 'static', 'libreflect.a'], })
+    targets_cmake({
+        'libreflect': ['reflect', 'static', 'libreflect.a'],
+        'shadowhook': ['shadowhook', 'shared', 'libshadowhook.so'], })
 
 if __name__ == '__main__':
     main()
