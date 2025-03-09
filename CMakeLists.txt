@@ -2,9 +2,6 @@ cmake_minimum_required(VERSION 3.10.2)
 
 project(ainulindale)
 
-# For the LSP
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
 include(cmake/${ANDROID_ABI}/ThirdParty.cmake)
 
 include_directories(include)

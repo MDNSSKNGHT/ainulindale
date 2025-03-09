@@ -35,6 +35,7 @@ def build_party(prj, ndk):
             f"-DANDROID_ABI={abi}",
             "-DANDROID_PLATFORM=latest",
             f"-DANDROID_NDK={ndk}",
+            "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
             f"-DCMAKE_TOOLCHAIN_FILE={ndk}/build/cmake/android.toolchain.cmake",
             "-GNinja"])
         subprocess.run(["cmake", "--build", f"third_party/build/{abi}/{prj}"])
