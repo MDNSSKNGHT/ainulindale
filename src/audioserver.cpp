@@ -14,8 +14,10 @@
 void thread_task(pid_t pid) {
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
+    Injector iSh(pid, "/system/lib64/libshadowhook.so");
     Injector iNt(pid, "/system/lib64/libnorgothrond.so");
 
+    LOGI("Injector for libshadowhook %d", iSh.Inject());
     LOGI("Injector for libnorgothrond %d", iNt.Inject());
 }
 
