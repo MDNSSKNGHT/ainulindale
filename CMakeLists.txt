@@ -6,8 +6,10 @@ include(cmake/${ANDROID_ABI}/ThirdParty.cmake)
 
 include_directories(include)
 
-add_library(norgothrond SHARED src/libnorgothrond/OnLoad.cpp)
-target_link_libraries(norgothrond log)
+add_library(norgothrond SHARED
+    src/libnorgothrond/OnLoad.cpp
+    src/libnorgothrond/Hooks.cpp)
+target_link_libraries(norgothrond log shadowhook)
 
 add_library(injector STATIC
     src/injector/RemoteProcess.cpp
